@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Prediksi Kunjuangan MCU RS Tugureji{% endblock %}
+{% block content %}
+  <div class="container py-5" style="margin-top: 20px">
+    <div class="row d-flex align-items-start">
+        <h1 class="display-2 mb-5">Prediksi Kunjuangan MCU RS Tugureji</h1>
+
+        <div class="row mb-5">
+            <div class="col-4 ">
+                <div class="container p-2 bg-danger rounded">
+                    <div class="container bg-secondary p-3 rounded">
+                        <form action="/" method="POST">
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label text-light">Berapa bulan kedepan yang akan diprediksi :</label>
+                              <input name="bulan" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                              <label for="Default select example" class="form-label text-light">Jenis MCU</label>
+                              <select name="MCU" class="form-select" aria-label="Default select example">
+                                <option value="0" disabled selected>Select your option</option>
+                                <option value="1">MCU Haji</option>
+                                <option value="2">MCU PNS</option>
+                                <option value="3">MCU PERUSAHAAN</option>	
+                                <option value="4">MCU UMUM</option>
+                                <option value="5">MCU EKSEKUTIF</option>
+                                <option value="6">MCU HAJI ONH PLUS</option>
+                                <option value="7">MCU KARYAWAN</option>
+                                <option value="8">MCU TKHI</option>
+                              </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="container p-2 bg-danger rounded">
+                    <div class="container bg-secondary p-3 rounded">
+                        <div class="mb-5">
+                            <label class="col-form-label text-light">Hasil Enkripsi</label>
+                            {% for i in range(content[0]) %}
+                            <div class="row">
+                              <div class="col-2"><label class="col-form-label text-light">Bulan ke-{{i}} :</label></div>
+                              <div class="col-10"><input type="text" class="form-control mb-2" id="Energy" disabled value="{{content[1][i]}}"></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
